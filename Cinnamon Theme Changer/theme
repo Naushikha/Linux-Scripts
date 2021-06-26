@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#Find out the current theme by window borders
+window_borders="$(gsettings get org.cinnamon.desktop.wm.preferences theme)"
+
+if [ "$window_borders" = "'Mint-Y'" ]; then
+	#light theme -> dark theme
+	window_borders="Mint-Y-Dark"
+	icons="Mint-Y-Dark-Grey"
+	controls="Adwaita-dark"
+	mouse_pointer="DMZ-Black"
+	desktop="Mint-Y-Dark-Blue"
+elif [ "$window_borders" = "'Mint-Y-Dark'" ]; then
+	#dark theme -> light theme
+	window_borders="Mint-Y"
+	icons="Adwaita"
+	controls="Adwaita"
+	mouse_pointer="DMZ-White"
+	desktop="Mint-X-Blue"
+fi
+
+# Window borders
+gsettings set org.cinnamon.desktop.wm.preferences theme $window_borders
+
+# Icons
+gsettings set org.cinnamon.desktop.interface icon-theme $icons
+
+# Controls
+gsettings set org.cinnamon.desktop.interface gtk-theme $controls
+
+# Mouse pointer
+gsettings set org.cinnamon.desktop.interface cursor-theme $mouse_pointer
+
+# Desktop
+gsettings set org.cinnamon.theme name $desktop
+
+#Find a way to change xed

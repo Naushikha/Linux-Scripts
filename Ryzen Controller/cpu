@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#Find out the preset input
+preset="$1"
+
+if [ "$preset" = "" ]; then
+    #Set the default one
+    pkexec ryzenadj --tctl-temp=80 --stapm-limit=15000 --fast-limit=15000 --slow-limit=15000   
+    notify-send "Default CPU preset"
+elif [ "$preset" = "-1" ]; then
+    pkexec ryzenadj --tctl-temp=75 --stapm-limit=13000 --fast-limit=13000 --slow-limit=13000
+    notify-send "Medium Savings CPU preset"
+elif [ "$preset" = "-2" ]; then
+    pkexec ryzenadj --tctl-temp=50 --stapm-limit=10000 --fast-limit=10000 --slow-limit=10000
+    notify-send "Ultra Savings CPU preset"
+elif [ "$preset" = "1" ]; then
+    pkexec ryzenadj --tctl-temp=90 --stapm-limit=20000 --fast-limit=20000 --slow-limit=20000
+    notify-send "High Power CPU preset"
+elif [ "$preset" = "2" ]; then
+    pkexec ryzenadj --tctl-temp=90 --stapm-limit=25000 --fast-limit=25000 --slow-limit=25000
+    notify-send "Ultra Power CPU preset"
+fi
+

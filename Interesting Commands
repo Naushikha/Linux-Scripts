@@ -10,12 +10,10 @@ https://gist.github.com/tzmartin/fb1f4a8e95ef5fb79596bd4719671b5d
 ffmpeg -i "" -c copy file.mp4
 
 
-
-batch prepending to filename
+////////// Batch prepending to filename
 for f in *; do mv "$f" "heroine_${f}"; done
 
-
-Downloading youtube videos
+///////// Downloading youtube videos
 
 youtube-dl -i {playlist_code}
 -F to get video types available
@@ -23,10 +21,16 @@ youtube-dl -i {playlist_code}
 
 youtube-dl -f FORMAT {url1,url2,url...}
 
-Writing ISO using dd 
+//////// Writing ISO using dd 
 https://askubuntu.com/questions/372607/how-to-create-a-bootable-ubuntu-usb-flash-drive-from-terminal
 
 sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync  status=progress
 
-This command seems to be frozen, you can check how Linux handles dirty writes (remaining) using this command,
+** This command seems to be frozen, you can check how Linux handles dirty writes (remaining) using this command,
 watch 'cat /proc/meminfo | grep Dirty'
+
+/////// convert mp3 to ogg
+
+for file in *.mp3
+  do ffmpeg -threads 8 -i "${file}" -b:a 64k "${file/%mp3/ogg}"
+done

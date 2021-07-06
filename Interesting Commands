@@ -34,3 +34,8 @@ watch 'cat /proc/meminfo | grep Dirty'
 for file in *.mp3
   do ffmpeg -threads 8 -i "${file}" -b:a 64k "${file/%mp3/ogg}"
 done
+
+/////// Check health of disks
+sudo smartctl -i /dev/sdX
+sudo smartctl -t short -a /dev/sdX
+sudo smartctl -t long -a /dev/sdX

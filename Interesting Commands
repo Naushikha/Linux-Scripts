@@ -13,6 +13,12 @@ ffmpeg -i "" -c copy file.mp4
 ////////// Batch prepending to filename
 for f in *; do mv "$f" "heroine_${f}"; done
 
+////////// Batch remove from filename
+for filename in *.png; do 
+    [ -f "$filename" ] || continue
+    mv "$filename" "${filename//removethispart/}"
+done
+
 ///////// Downloading youtube videos
 
 youtube-dl -i {playlist_code}

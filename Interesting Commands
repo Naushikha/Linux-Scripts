@@ -1,33 +1,44 @@
-find . -name "*.mkv" -exec mkvpropedit {} --edit track:3 --set flag-default=1 \;
-
-
-
-for FL in *.avi; do mkvmerge "${FL%.*}.avi" "${FL%.*}.SRT" -o "${FL%.*}.mkv" ; done
-
+---------------------------------------------
+Downloading m3u8 streams from web
+---------------------------------------------
 
 https://gist.github.com/tzmartin/fb1f4a8e95ef5fb79596bd4719671b5d
 
-ffmpeg -i "" -c copy file.mp4
+ffmpeg -i "m3u8link" -c copy file.mp4
 
+---------------------------------------------
+Some MKV stuff
+---------------------------------------------
 
-////////// Batch prepending to filename
+find . -name "*.mkv" -exec mkvpropedit {} --edit track:3 --set flag-default=1 \;
+
+for FL in *.avi; do mkvmerge "${FL%.*}.avi" "${FL%.*}.SRT" -o "${FL%.*}.mkv" ; done
+
+---------------------------------------------
+Batch prepending to filename
+---------------------------------------------
 for f in *; do mv "$f" "heroine_${f}"; done
 
-////////// Batch remove from filename
+---------------------------------------------
+Batch remove from filename
+---------------------------------------------
 for filename in *.png; do 
     [ -f "$filename" ] || continue
     mv "$filename" "${filename//removethispart/}"
 done
 
-///////// Downloading youtube videos
-
+---------------------------------------------
+Downloading youtube videos
+---------------------------------------------
 youtube-dl -i {playlist_code}
 -F to get video types available
 -f {number} specify it
 
 youtube-dl -f FORMAT {url1,url2,url...}
 
-//////// Writing ISO using dd 
+---------------------------------------------
+Writing ISO using dd 
+---------------------------------------------
 https://askubuntu.com/questions/372607/how-to-create-a-bootable-ubuntu-usb-flash-drive-from-terminal
 
 sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync  status=progress
@@ -35,13 +46,16 @@ sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync  status=progress
 ** This command seems to be frozen, you can check how Linux handles dirty writes (remaining) using this command,
 watch 'cat /proc/meminfo | grep Dirty'
 
-/////// convert mp3 to ogg
-
+---------------------------------------------
+Convert mp3 to ogg with quality (64k)
+---------------------------------------------
 for file in *.mp3
   do ffmpeg -threads 8 -i "${file}" -b:a 64k "${file/%mp3/ogg}"
 done
 
-/////// Check health of disks
+---------------------------------------------
+Check health of disks
+---------------------------------------------
 sudo smartctl -i /dev/sdX
 sudo smartctl -t short -a /dev/sdX
 sudo smartctl -t long -a /dev/sdX

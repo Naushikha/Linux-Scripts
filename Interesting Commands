@@ -39,6 +39,7 @@ youtube-dl -f FORMAT {url1,url2,url...}
 ---------------------------------------------
 Writing ISO using dd 
 ---------------------------------------------
+! Use Ventoy [EASY] - https://github.com/ventoy/Ventoy/releases
 https://askubuntu.com/questions/372607/how-to-create-a-bootable-ubuntu-usb-flash-drive-from-terminal
 
 sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync  status=progress

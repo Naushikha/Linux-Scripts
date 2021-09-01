@@ -60,3 +60,8 @@ Check health of disks
 sudo smartctl -i /dev/sdX
 sudo smartctl -t short -a /dev/sdX
 sudo smartctl -t long -a /dev/sdX
+
+---------------------------------------------
+Kill all processes with matching name
+---------------------------------------------
+pkill -f my_name

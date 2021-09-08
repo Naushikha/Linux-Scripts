@@ -70,3 +70,8 @@ pkill -f my_name
 Get Ubuntu version on Linux Mint
 ---------------------------------------------
 cat /etc/upstream-release/lsb-release 
+
+---------------------------------------------
+Clean up for space | journals, logs
+---------------------------------------------
+sudo journalctl --vacuum-time=1d

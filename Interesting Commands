@@ -75,3 +75,9 @@ cat /etc/upstream-release/lsb-release
 Clean up for space | journals, logs
 ---------------------------------------------
 sudo journalctl --vacuum-time=1d
+
+---------------------------------------------
+Load sql file in MySQL commandline
+---------------------------------------------
+
+mysql> source \path\to\file\test.sql;

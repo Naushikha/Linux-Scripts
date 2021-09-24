@@ -79,5 +79,10 @@ sudo journalctl --vacuum-time=1d
 ---------------------------------------------
 Load sql file in MySQL commandline
 ---------------------------------------------
-
 mysql> source \path\to\file\test.sql;
+
+---------------------------------------------
+Clear DNS cache
+---------------------------------------------
+sudo systemd-resolve --statistics
+sudo systemd-resolve --flush-caches

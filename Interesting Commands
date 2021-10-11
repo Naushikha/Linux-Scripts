@@ -86,3 +86,10 @@ Clear DNS cache
 ---------------------------------------------
 sudo systemd-resolve --statistics
 sudo systemd-resolve --flush-caches
+
+---------------------------------------------
+Uninstall a .deb package
+---------------------------------------------
+https://askubuntu.com/questions/22200/how-to-uninstall-a-deb-package
+dpkg -r $(dpkg -f your-file-here.deb Package)
+sudo dpkg -r package_name

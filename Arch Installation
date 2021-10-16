@@ -1,0 +1,18 @@
+// For legacy installation, particularly syslinux
+
+https://gist.github.com/jaymutuku/cb8d0f9734a99c19c2503d8439f79e71
+
+you would need base-devel to use AURs because you have to compile and do those stuff
+
+Installing XRDP and XFCE
+
+Install graphics drivers!
+
+install xorg, xfce, xrdp
+
+Some issue with this not working, xorgxrdp
+https://bbs.archlinux.org/viewtopic.php?id=265922 
+
+Issue with launching session xrdp > startwm.sh
+https://bbs.archlinux.org/viewtopic.php?id=216491
+

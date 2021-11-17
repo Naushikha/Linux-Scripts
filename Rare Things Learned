@@ -1,0 +1,17 @@
+2021/11/16
+Upon installation of Linux Mint on Optiplex 3046 there were a few issues,
+
+1. Graphics driver not working
+    The system was packed with a GT 730, Mint chose the default open source driver but it was giving issues. Switching to Nvidia proprietary did not work.
+    The solution was to uninstall "xserver-xorg-video-fbdev"
+    https://www.reddit.com/r/linux4noobs/comments/kvb3cr/the_newest_nvidia_driver_460_isnt_working/
+    https://forums.linuxmint.com/viewtopic.php?t=301215
+
+2. Audio port not working
+    When you connect a headset, it recognizes the thing as headphones. Meaning, left/right doesn't work properly. Also the microphone.
+    The issue was due to the fact, that linux can't recognize this is a multi/combo port.
+    The fix was,
+    https://askubuntu.com/a/1233446
+    https://www.kernel.org/doc/html/latest/sound/hd-audio/models.html#:~:text=mic%20LED%20support-,dell%2Dheadset%2Dmulti,-Headset%20jack%2C%20which
+    "dell-headset-multi" had to be explicitly set on hda-intel thing
+

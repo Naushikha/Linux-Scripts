@@ -15,3 +15,11 @@ Upon installation of Linux Mint on Optiplex 3046 there were a few issues,
     https://www.kernel.org/doc/html/latest/sound/hd-audio/models.html#:~:text=mic%20LED%20support-,dell%2Dheadset%2Dmulti,-Headset%20jack%2C%20which
     "dell-headset-multi" had to be explicitly set on hda-intel thing
 
+
+2021/11/17
+Even after the prev graphics driver fix, the driver wasn't getting loaded and required a restart on Cinnamon to properly load.
+    Found a fix,
+        https://forums.linuxmint.com/viewtopic.php?t=339258
+        https://forums.linuxmint.com/viewtopic.php?p=1895521#p1895521
+
+Linux Mint now cannot suspend, searching a fix... probably graphics driver issue

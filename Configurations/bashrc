@@ -1,0 +1,5 @@
+Location: ~/.bashrc
+
+to show only current directory in prompt do this,
+change "\w" to "\W" in PS1
+https://superuser.com/questions/60555/show-only-current-directory-name-not-full-path-on-bash-prompt

@@ -30,3 +30,5 @@ Found a temporary fix for the suspend issue,
 
 2021/11/20
 Seems the temporary fix is broken, investigating more.
+"pm-suspend" seems to do the job, but resumes straight into the desktop without the login screen. 
+Plus, adding in the root password everytime to suspend the desktop is sub-optimal.

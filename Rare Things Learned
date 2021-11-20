@@ -23,3 +23,10 @@ Even after the prev graphics driver fix, the driver wasn't getting loaded and re
         https://forums.linuxmint.com/viewtopic.php?p=1895521#p1895521
 
 Linux Mint now cannot suspend, searching a fix... probably graphics driver issue
+
+2021/11/18
+Found a temporary fix for the suspend issue,
+    Suspend using "systemctl suspend"
+
+2021/11/20
+Seems the temporary fix is broken, investigating more.

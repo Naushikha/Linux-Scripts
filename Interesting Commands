@@ -94,3 +94,16 @@ https://askubuntu.com/questions/22200/how-to-uninstall-a-deb-package
 
 dpkg -r $(dpkg -f your-file-here.deb Package)
 sudo dpkg -r package_name
+
+
+---------------------------------------------
+Resolving key server issues
+---------------------------------------------
+"gpg: keyserver receive failed: General error"
+
+https://bbs.archlinux.org/viewtopic.php?id=257527
+https://www.reddit.com/r/linuxmint/comments/rnq58t/comment/hpuug4y/
+
+gpg --keyserver keyserver.ubuntu.com --recv-key <key number>
+gpg --export --armor <key number> | sudo apt-key add -
+sudo apt update

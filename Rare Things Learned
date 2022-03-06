@@ -1,0 +1,39 @@
+2021/11/16
+Upon installation of Linux Mint on Optiplex 3046 there were a few issues,
+
+1. Graphics driver not working
+    The system was packed with a GT 730, Mint chose the default open source driver but it was giving issues. Switching to Nvidia proprietary did not work.
+    The solution was to uninstall "xserver-xorg-video-fbdev"
+    https://www.reddit.com/r/linux4noobs/comments/kvb3cr/the_newest_nvidia_driver_460_isnt_working/
+    https://forums.linuxmint.com/viewtopic.php?t=301215
+
+2. Audio port not working
+    When you connect a headset, it recognizes the thing as headphones. Meaning, left/right doesn't work properly. Also the microphone.
+    The issue was due to the fact, that linux can't recognize this is a multi/combo port.
+    The fix was,
+    https://askubuntu.com/a/1233446
+    https://www.kernel.org/doc/html/latest/sound/hd-audio/models.html#:~:text=mic%20LED%20support-,dell%2Dheadset%2Dmulti,-Headset%20jack%2C%20which
+    "dell-headset-multi" had to be explicitly set on hda-intel thing
+
+
+2021/11/17
+Even after the prev graphics driver fix, the driver wasn't getting loaded and required a restart on Cinnamon to properly load.
+    Found a fix,
+        https://forums.linuxmint.com/viewtopic.php?t=339258
+        https://forums.linuxmint.com/viewtopic.php?p=1895521#p1895521
+
+Linux Mint now cannot suspend, searching a fix... probably graphics driver issue
+
+2021/11/18
+Found a temporary fix for the suspend issue,
+    Suspend using "systemctl suspend"
+
+2021/11/20
+Seems the temporary fix is broken, investigating more.
+"pm-suspend" seems to do the job, but resumes straight into the desktop without the login screen. 
+Plus, adding in the root password everytime to suspend the desktop is sub-optimal.
+
+2021/11/30
+Fix for VirtualBox grey text (Why didn't I fix this before??)
+    https://www.youtube.com/watch?v=wLfzUn62jnM
+

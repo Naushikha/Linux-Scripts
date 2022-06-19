@@ -37,3 +37,8 @@ Plus, adding in the root password everytime to suspend the desktop is sub-optima
 Fix for VirtualBox grey text (Why didn't I fix this before??)
     https://www.youtube.com/watch?v=wLfzUn62jnM
 
+2022/06/19
+A small fix for the annoying pop up on Cinnamon: Nemo file manager, whenever we plug in the phone (Android);
+https://budimir.cc/2019/03/20/linux-mint-disable-mtp-auto-mount/
+    gsettings set org.cinnamon.desktop.media-handling automount-open false
+This will prevent the automatic window that pops up whenever the device is connected.

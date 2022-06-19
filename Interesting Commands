@@ -107,3 +107,11 @@ https://www.reddit.com/r/linuxmint/comments/rnq58t/comment/hpuug4y/
 gpg --keyserver keyserver.ubuntu.com --recv-key <key number>
 gpg --export --armor <key number> | sudo apt-key add -
 sudo apt update
+
+---------------------------------------------
+Sync content of two folders 
+---------------------------------------------
+https://unix.stackexchange.com/a/203854
+source >> destination
+
+rsync -avu --delete /home/naush/Desktop/DOCS/ /mnt/secondary/DOCS

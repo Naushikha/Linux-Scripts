@@ -30,11 +30,11 @@ done
 ---------------------------------------------
 Downloading youtube videos
 ---------------------------------------------
-youtube-dl -i {playlist_code}
+yt-dlp -i {playlist_code}
 -F to get video types available
 -f {number} specify it
 
-youtube-dl -f FORMAT {url1,url2,url...}
+yt-dlp -f FORMAT {url1,url2,url...}
 
 ---------------------------------------------
 Writing ISO using dd 

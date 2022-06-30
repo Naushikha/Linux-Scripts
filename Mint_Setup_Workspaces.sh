@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Move shortcuts to laptop screen
-xdotool key super+d
-xdotool key super+shift+Right
+xdotool key super+shift+Right # Assuming we are looking at desktop when script is running
 
 WAITTIME=3
 ## WORKSPACE 4 - Communication, Todoist & Music

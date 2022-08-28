@@ -8,6 +8,7 @@ case $? in
 0)
     echo "Destination directory '$DEST' selected."
     zenity --question --text="Delete files in destination to match source?" --width=300
+    gnome-terminal --window -- bash -c "watch -n 1 tail -n 5 $HOME/Desktop/${myDate}; exec bash"
     if [ $? = 0 ]; then
         echo "Backing up '$PWD' into '$DEST'..."
         rsync -avu --delete . "$DEST" >"$HOME/Desktop/${myDate}" 2>&1

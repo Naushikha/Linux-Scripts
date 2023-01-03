@@ -115,3 +115,10 @@ https://unix.stackexchange.com/a/203854
 source >> destination
 
 rsync -avu --delete /home/naush/Desktop/DOCS/ /mnt/secondary/DOCS
+
+---------------------------------------------
+Give permissions to nethogs to have specific permissions to run as root 
+https://unix.stackexchange.com/a/203854
+---------------------------------------------
+
+sudo setcap "cap_net_admin,cap_net_raw=ep" /usr/sbin/nethogs

@@ -1,4 +1,6 @@
 #!/bin/bash
+# https://askubuntu.com/a/1446236
+# https://linuxconfig.org/how-to-install-pipewire-on-ubuntu-linux
 
 # Make the card expose all channels, left, right etc.
 pactl set-card-profile alsa_card.pci-0000_00_1f.3 pro-audio

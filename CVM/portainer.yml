@@ -1,0 +1,24 @@
+# COMMAND: sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -v /etc/letsencrypt/live/ocvm.naushikha.com:/certs/live/ocvm.naushikha.com:ro -v /etc/letsencrypt/archive/ocvm.naushikha.com:/certs/archive/ocvm.naushikha.com:ro portainer/portainer-ce:latest --sslcert /certs/live/ocvm.naushikha.com/fullchain.pem --sslkey /certs/live/ocvm.naushikha.com/privkey.pem
+# COMPOSE: docker compose -f portainer.yml up
+# https://www.composerize.com/
+# https://www.decomposerize.com/
+
+name: portainer
+services:
+  portainer-ce:
+    ports:
+      - 8000:8000
+      - 9443:9443
+      # - 9000:9000 # for HTTP
+    container_name: portainer
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - data:/data
+      - /etc/letsencrypt/live/ocvm.naushikha.com:/certs/live/ocvm.naushikha.com:ro
+      - /etc/letsencrypt/archive/ocvm.naushikha.com:/certs/archive/ocvm.naushikha.com:ro
+    image: portainer/portainer-ce:latest
+    command: --sslcert /certs/live/ocvm.naushikha.com/fullchain.pem --sslkey
+      /certs/live/ocvm.naushikha.com/privkey.pem # --http-enabled
+volumes:
+  data:

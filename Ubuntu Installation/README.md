@@ -1,5 +1,8 @@
 # Configure Bash
-- Enable history search: `echo -e '"\e[A": history-search-backward\n"\e[B": history-search-forward' >> ~/.inputrc`
+- Enable history search: 
+```
+echo -e '"\e[A": history-search-backward\n"\e[B": history-search-forward' >> ~/.inputrc
+```
 
 # Configure Gnome Shortcuts
 ```
@@ -13,7 +16,9 @@ gsettings set org.gnome.shell.keybindings show-screenshot-ui "['<Shift><Super>s'
 ```
 
 # Install Google Chrome
-`wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
+```
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+```
 
 # Install Gnome Extensions
 ```
@@ -29,7 +34,9 @@ sudo apt install gnome-shell-extension-manager
 - **WinTile @nowsci** : MS windows like tiling
 
 # Mod WinTile Extension
-- `/home/naush/.local/share/gnome-shell/extensions/wintile@nowsci.com/extension.js`
+```
+gedit /home/naush/.local/share/gnome-shell/extensions/wintile@nowsci.com/extension.js
+```
 - Look for "changeBinding(mutterKeybindingSettings" > 
 "toggle-tiled-left" and "toggle-tiled-right".
 - Change secondary shortcut to "\<Control>\<Alt>\<Shift>\<Super>Left & Right"
@@ -48,15 +55,20 @@ git config --global user.name Naushikha
 git config --global user.email dev@naushikha.com
 ```
 - Setup SSH key with GitHub
-
-- `wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64`
+```
+wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+```
 
 # Disable Unnecessary Services
 ## Disable Bluetooth on Startup
-- `sudo nano /etc/bluetooth/main.conf` 
+```
+sudo gedit /etc/bluetooth/main.conf
+```
 - set AutoEnable=false
 
 # Install Necessary Services
 ## Wayland Gamma Correction Tool
-`git clone https://github.com/zb3/gnome-gamma-tool`
+```
+git clone https://github.com/zb3/gnome-gamma-tool
+```
 

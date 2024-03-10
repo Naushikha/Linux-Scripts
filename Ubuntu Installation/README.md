@@ -17,7 +17,7 @@ gsettings set org.gnome.shell.keybindings show-screenshot-ui "['<Shift><Super>s'
 
 # Install Google Chrome
 ```
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 ```
 
 # Install Gnome Extensions
@@ -56,7 +56,7 @@ git config --global user.email dev@naushikha.com
 ```
 - Setup SSH key with GitHub
 ```
-wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
 ```
 
 # Disable Unnecessary Services

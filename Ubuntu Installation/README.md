@@ -58,17 +58,13 @@ git config --global user.email dev@naushikha.com
 ```
 https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
 ```
-
-# Disable Unnecessary Services
-## Disable Bluetooth on Startup
-```
-sudo gedit /etc/bluetooth/main.conf
-```
-- set AutoEnable=false
-
-# Install Necessary Services
+# Install Necessary Tools
 ## Wayland Gamma Correction Tool
 ```
 git clone https://github.com/zb3/gnome-gamma-tool
+```
+## Blueman for Bluetooth Management
+```
+sudo apt install blueman
 ```
 

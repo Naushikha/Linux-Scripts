@@ -12,14 +12,15 @@ services:
       - XRAY_VMESS_AEAD_FORCED=false
     volumes:
       - 3x-ui:/etc/x-ui/
-      - /etc/letsencrypt/live/freedom.naushikha.com/:/certs/live/freedom.naushikha.com/:ro
-      - /etc/letsencrypt/archive/freedom.naushikha.com/:/certs/archive/freedom.naushikha.com/:ro
+      - /etc/letsencrypt/live/ofreedom.naushikha.com/:/etc/letsencrypt/live/ofreedom.naushikha.com/:ro
+      - /etc/letsencrypt/archive/ofreedom.naushikha.com/:/etc/letsencrypt/archive/ofreedom.naushikha.com/:ro
     network_mode: host
     restart: unless-stopped
     container_name: 3x-ui
     image: ghcr.io/mhsanaei/3x-ui:latest
 volumes:
   3x-ui:
+    name: 3x-ui-db
 # POST INSTALL;
 # * Default username:pwd is admin:admin
 # * Setup certs using internal mount location

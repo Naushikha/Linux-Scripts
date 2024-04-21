@@ -8,3 +8,8 @@ services:
     tty: true
     ports:
       - 65535:3389
+    # Required for OpenVPN tunnel creation
+    # cap_add:
+    #   - net_admin
+    # devices:
+    #   - /dev/net/tun

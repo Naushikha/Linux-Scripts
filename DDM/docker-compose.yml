@@ -1,0 +1,10 @@
+services:
+  ubuntu-xrdp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ubuntu-xrdp
+    container_name: ubuntu-xrdp
+    tty: true
+    ports:
+      - 65535:3389

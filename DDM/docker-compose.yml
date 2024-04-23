@@ -7,9 +7,22 @@ services:
     container_name: ubuntu-xrdp
     tty: true
     ports:
+      - 65534:22
       - 65535:3389
+    volumes:
+      - ubuntu-xrdp-storage:/home/naush/persist
+      # Update proper content in id_rsa, id_rsa.pub, client.ovpn, credentials
+      - ./mount/.ssh/id_rsa:/home/naush/.ssh/id_rsa
+      - ./mount/.ssh/id_rsa.pub:/home/naush/.ssh/id_rsa.pub
+      - ./mount/.ssh/config:/home/naush/.ssh/config
+      - ./mount/vpn:/home/naush/vpn
+      - ./mount/bashrc_custom:/home/naush/.bashrc_custom
     # Required for OpenVPN tunnel creation
-    # cap_add:
-    #   - net_admin
-    # devices:
-    #   - /dev/net/tun
+    cap_add:
+      - net_admin
+    devices:
+      - /dev/net/tun
+
+volumes:
+  ubuntu-xrdp-storage:
+    name: ubuntu-xrdp-storage

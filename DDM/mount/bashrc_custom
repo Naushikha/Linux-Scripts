@@ -1,0 +1,3 @@
+alias cvpn='cd ~/vpn && sudo openvpn --config client.ovpn --auth-user-pass credentials'
+alias sshp='ssh naushikha@proxy'
+alias sshap='ssh naushikha@aproxy'

@@ -13,7 +13,7 @@ RUN apt update && \
         # libsrvg2 is needed for Dracula theme; since it contains svg icons
         librsvg2-bin librsvg2-common \
         # Networking essentials
-        openssh-server openssh-client openvpn iputils-ping \
+        openssh-server openssh-client sshfs openvpn iputils-ping \
         # Absolute essentials
         sudo nano git wget ca-certificates software-properties-common gpg-agent \
         # Install zip, 7z, rar support

@@ -17,11 +17,12 @@ services:
       - ./mount/.ssh/config:/home/naush/.ssh/config
       - ./mount/vpn:/home/naush/vpn
       - ./mount/bashrc_custom:/home/naush/.bashrc_custom
-    # Required for OpenVPN tunnel creation
     cap_add:
-      - net_admin
+      - net_admin # for openvpn support
+      - sys_admin # for sshfs support
     devices:
-      - /dev/net/tun
+      - /dev/net/tun # for openvpn support
+      - /dev/fuse # for sshfs support
 
 volumes:
   naush-ddm-storage:

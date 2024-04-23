@@ -45,6 +45,7 @@ RUN wget -O /tmp/theme.zip https://github.com/dracula/gtk/archive/master.zip && 
 RUN groupadd --gid 1020 naush && \
     useradd --shell /bin/bash --uid 1020 --gid 1020 --password $(openssl passwd naush) --create-home --home-dir /home/naush naush && \
     usermod -aG sudo naush && \
+    mkdir /home/naush/.ssh && chown naush:naush /home/naush/.ssh && \
     echo '[ -f $HOME/.bashrc_custom ] && source $HOME/.bashrc_custom' >> /home/naush/.bashrc
 
 ENV LANG=en_US.UTF-8

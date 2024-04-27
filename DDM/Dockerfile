@@ -1,7 +1,7 @@
 # DDM - Disposable Docker Machine (technically a 'container'; but we use this as a machine with a desktop environment)
 # Partly derived from: https://github.com/scottyhardy/docker-remote-desktop
 
-ARG TAG=latest
+ARG TAG=jammy
 
 FROM ubuntu:$TAG
 
@@ -49,8 +49,8 @@ RUN sed -i '/tcp_send_buffer_bytes/c\tcp_send_buffer_bytes=4194304' /etc/xrdp/xr
 # Install Dracula theme: https://draculatheme.com/gtk
 RUN wget -O /tmp/theme.zip https://github.com/dracula/gtk/archive/master.zip && \
     wget -O /tmp/icons.zip https://github.com/dracula/gtk/files/5214870/Dracula.zip && \
-    7z -snld x /tmp/icons.zip -o/usr/share/icons/ && \
-    7z -snld x /tmp/theme.zip -o/usr/share/themes/ && \
+    7z x /tmp/icons.zip -o/usr/share/icons/ && \
+    7z x /tmp/theme.zip -o/usr/share/themes/ && \
     chmod -R a+rx /usr/share/themes/gtk-master && \
     chmod -R a+rx /usr/share/icons/Dracula && \
     sed -i 's/Greybird/gtk-master/' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml && \

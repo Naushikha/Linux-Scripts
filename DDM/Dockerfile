@@ -78,6 +78,9 @@ USER naush
 RUN mkdir -p /home/naush/.config/sublime-text/Packages/User && \
     echo '{"theme": "Default Dark.sublime-theme"}' > \
     /home/naush/.config/sublime-text/Packages/User/Preferences.sublime-settings
+# Add autocomplete based on history: https://superuser.com/a/1332850
+RUN echo '"\e[A": history-search-backward' >> /home/naush/.inputrc \
+    && echo '"\e[B": history-search-forward' >> /home/naush/.inputrc
 
 USER root
 

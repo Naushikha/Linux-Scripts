@@ -1,0 +1,17 @@
+Go with the advanced installer to get rid of EFI issues!
+
+TopHat is the best for system monitoring
+
+Need to remove forceful keybindings from WinTile
+
+Need to install appindicator extension otherwise no tray icons for apps like telegram
+
+Need to configure shortcuts
+
+Need to install fonts-noto-core, otherwise no unicode support
+Need to reinstall vim; something weird happens with the arrow keys otherwise
+Need to install yaru sound theme: default sounds yuck
+sudo apt install yaru-theme-sound
+
+Generate SSH
+Install Git, VSCode VLC

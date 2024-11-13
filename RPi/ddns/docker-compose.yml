@@ -1,0 +1,10 @@
+services:
+  cloudflare-ddns:
+    image: favonia/cloudflare-ddns:latest
+    container_name: cloudflare-ddns
+    network_mode: host
+    restart: always
+    environment:
+      - CLOUDFLARE_API_TOKEN=TOKENHERE
+      - DOMAINS=h.naushikha.com,hikv.naushikha.com
+      - PROXIED=false

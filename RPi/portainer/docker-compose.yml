@@ -1,0 +1,27 @@
+name: portainer
+services:
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:2.21.4
+    restart: always
+    ports:
+      - 8000:8000
+      - 9443:9443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer-storage:/data
+
+  portainer-agent:
+    container_name: portainer-agent
+    image: portainer/agent:2.21.4
+    restart: always
+    ports:
+      - 9001:9001
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+      - /:/host
+
+volumes:
+  portainer-storage:
+    name: portainer-storage

@@ -1,0 +1,10 @@
+services:
+  haproxy:
+    image: haproxy:alpine
+    container_name: haproxy
+    ports:
+      - "4444:80"        # Expose HTTP on port 4444
+      - "9999:9999"        # Expose HTTP on port 80
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    restart: always

@@ -1,0 +1,18 @@
+name: portainer
+services:
+  portainer:
+    image: portainer/portainer-ee:latest
+    container_name: portainer
+    restart: always
+    ports:
+      - 9443:9443
+      - 8000:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    environment:
+      - TRUSTED_ORIGINS=cvm.naushikha.com
+
+volumes:
+  portainer_data:
+    name: portainer_data

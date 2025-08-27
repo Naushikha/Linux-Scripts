@@ -4,14 +4,14 @@ services:
     container_name: nginx
     restart: always
     volumes:
-      - ./data/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./certbot/www:/var/www/certbot
-      - ./certbot/conf:/etc/letsencrypt
+      - ./config/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./config/nginx/confs:/etc/nginx/confs:ro
+      - ./config/nginx/auth:/etc/nginx/auth:ro
+      - ./data/certbot/www:/var/www/certbot # webroot for certbot acme challenges
+      - ./data/certbot/conf:/etc/letsencrypt # all certbot files stored here
     ports:
       - "80:80"
       - "443:443"
-    depends_on:
-      - certbot
     networks:
       - webnet
 
@@ -19,15 +19,25 @@ services:
     image: certbot/certbot
     container_name: certbot
     restart: always
+    depends_on:
+      - nginx
     volumes:
-      - ./certbot/www:/var/www/certbot
-      - ./certbot/conf:/etc/letsencrypt
-    entrypoint: /bin/sh -c 'trap exit TERM; while :; do certbot renew --webroot -w /var/www/certbot; sleep 12h; done'
+      - ./data/certbot/www:/var/www/certbot # webroot for certbot acme challenges
+      - ./data/certbot/conf:/etc/letsencrypt # all certbot files stored here
+    entrypoint: >
+      /bin/sh -c '
+        trap "exit 0" TERM INT;
+        while true; do
+          certbot renew --webroot -w /var/www/certbot;
+          sleep 43200 &  # 12h
+          wait $!;
+        done
+      '
     networks:
       - webnet
 
 networks:
   webnet:
-# Run below in certbot terminal >
-# certbot certonly --webroot -w /var/www/certbot -d h.naushikha.com
-# certbot certonly --webroot -w /var/www/certbot -d hikv.naushikha.com
+    name: webnet
+#########################################################
+# Important: run content in create-certificates.sh to create certificates

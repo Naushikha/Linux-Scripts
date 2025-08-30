@@ -1,0 +1,48 @@
+name: nextcloud
+services:
+  db:
+    image: postgres:alpine
+    container_name: nextcloud-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=nextcloud
+      - POSTGRES_USER=nextcloud
+      - POSTGRES_PASSWORD=nextcloud
+    volumes:
+      - /mnt/drive/cloud/db:/var/lib/postgresql/data
+
+  redis:
+    image: redis:alpine
+    container_name: nextcloud-redis
+    restart: unless-stopped
+
+  app:
+    image: nextcloud:latest
+    container_name: nextcloud-app
+    restart: unless-stopped
+    depends_on:
+      - redis
+      - db
+    ports:
+      - 33333:80
+    user: ${UID}:${GID}
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_DB=nextcloud
+      - POSTGRES_USER=nextcloud
+      - POSTGRES_PASSWORD=nextcloud
+      - REDIS_HOST=redis
+    volumes:
+      - /mnt/drive/cloud/files:/var/www/html
+      - /mnt/drive/cloud/redis-session.ini:/usr/local/etc/php/conf.d/redis-session.ini
+# Run below for proper UID and GID for filebrowser user;
+# touch config/filebrowser.db
+# echo "UID=$(id -u)" > .env; echo "GID=$(id -g)" >> .env
+# Create the directories below before starting the containers;
+# mkdir -p /mnt/drive/cloud/db
+# mkdir -p /mnt/drive/cloud/files
+# Touch the redis-session.ini file with below content;
+# echo "" > /mnt/drive/cloud/redis-session.ini
+# Do this as well;
+# https://docs.nextcloud.com/server/17/admin_manual/configuration_server/reverse_proxy_configuration.html
+# https://help.nextcloud.com/t/nextcloud-docker-redirects-to-localhost/50128
